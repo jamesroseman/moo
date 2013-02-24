@@ -5,10 +5,10 @@
   <head>
     <style>
       #squarecontainer {
-      min-height: 100%;
-      min-width: 100%;
-      display: block;
+      min-height: 100%
+      display: inline-block;
       margin: 0px;
+      background-color: #FF0000;
     }
 
     </style>
@@ -24,11 +24,10 @@
       }
 
 function init(){
-  document.body.innerHTML = "";
 
   var div = document.createElement("div");
   div.id = "squarecontainer";
-  var horizSq = 11;
+  var horizSq = 10;
   var vertSq = 10;
   width = window.innerWidth;
   height = window.innerHeight;
@@ -42,12 +41,14 @@ function init(){
       context.fillRect(0,0,colorBox.width, colorBox.height);
       colorBox.id = context.fillStyle;
       div.appendChild(colorBox);
+      if(j == 10)
+        document.write("\n<br />");
     }
   }
   document.body.appendChild(div);
 }
 </script>
   </head>
-  <body onload="init()" onresize="init()">
+  <body onload="init()">
   </body>
 </html>
