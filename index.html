@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+  <title>Moo</title>
+  <head>
+    <style>
+      #squarecontainer {
+      display: inline-block;
+      margin: 0px;
+      background-color: #FF0000;
+    }
+
+    </style>
+    <script type="text/javascript">
+      var grid = [];
+      function makeColor(i, numSq){
+        var letters = '0123456789ABCDEF'.split('');
+        var color = '#';
+        for (var i = 0; i < 6; i++ ) {
+          color += letters[Math.round(Math.random() * 15)];
+        }
+        return color;
+      }
+
+function init(){
+  /*      var canvas = document.getElementById("canvas");
+          canvas.width = document.body.clientWidth;
+          canvas.height = screen.height;//document.body.clientHeight;
+          canH = canvas.height;
+          canW = canvas.width;
+          var can = canvas.getContext("2d");*/
+
+  var div = document.createElement("div");
+  div.id = "squarecontainer";
+  var horizSq = 10;
+  var vertSq = 10;
+  width = window.innerWidth;
+  height = window.innerHeight;
+  for(var i = 1; i <= vertSq; i++){
+    for(var j = 1; j <= horizSq; j++){
+      var colorBox = document.createElement("canvas");
+      colorBox.width = Math.round(width / horizSq);
+      colorBox.height = Math.round(height / vertSq);
+      var context = colorBox.getContext("2d");
+      context.fillStyle = makeColor(i, horizSq*vertSq);
+      context.fillRect(0,0,colorBox.width, colorBox.height);
+      colorBox.id = context.fillStyle;
+      div.appendChild(colorBox);
+      if(j == 10)
+        document.write("\n<br />");
+    }
+  }
+  document.body.appendChild(div);
+}
+</script>
+  </head>
+  <body onload="init()">
+  </body>
+</html>
