@@ -1,4 +1,5 @@
 import colorsys
+from pyechonest import song
 
 # Basic class for color database
 class ColorDB:
