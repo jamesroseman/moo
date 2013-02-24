@@ -52,6 +52,12 @@ def evalAttr (attr, color_left, color_right, m, w, l):
     return float(w*((1-m)*getAttr(color_left, l) + m*getAttr(color_right, l)))
 
 
+# Given a hex, return its hue
+def hexToHue (hex_in):
+    rgb = hex_to_rgb (hex_in)
+    hsv = colorsys.rgb_to_hsv (rgb[0], rgb[1], rgb[2])
+    return hsv[0] * 360
+
 # Given a hex, return the list of descriptors which describe the color
 # from the basis of danceability, energy, tempo, mode, and loudness
 def hexToDescrip (hex_in):

@@ -4,6 +4,14 @@
 import sqlite3 as lite
 import sys
 
+'''
+Main SQLite structure:
+    - Colors contains all colors and initial seeded values
+    - Red/Yellow/etc. contains all up/downvoted song's descriptor lists
+'''
+
+con = lite.connect('moo.db')
+
 colors = (
     (1, 'Red', 0, 0.5, 1, 0, 300, 0.5, -14, 0),
     (2, 'Yellow', 60, 1, 1, 100, 300, 0, -14, 0),
@@ -13,7 +21,7 @@ colors = (
     (6, 'Magenta', 300, 1, 0.75, 100, 300, 0.5, -14, 0)
 )
 
-con = lite.connect('moo.db')
+colorlist = ["Red", "Yellow", "Green", "Cyan", "Blue", "Magenta"]
 
 with con:
 
@@ -24,6 +32,11 @@ with con:
                                  Energy REAL, Tempo_Min REAL, Tempo_Max REAL, \
                                      Mode REAL, Loud_Min REAL, Loud_Max REAL)")
     cur.executemany("INSERT INTO Colors VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",colors)
+
+    for clr in colorlist:
+        cur.execute ("DROP TABLE IF EXISTS %s" %clr)
+        cur.execute("CREATE TABLE %s (Dance REAL, Energy REAL, Tempo_Min REAL, Tempo_Max REAL, Mode REAL, \
+                                     Loud_Min REAL, Loud_Max REAL)" % clr)
     
     
 
