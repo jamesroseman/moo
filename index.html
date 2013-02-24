@@ -13,9 +13,16 @@
     }
 
     </style>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="tinysort.js"></script>
+    <script>
+        function sort () {
+            $("#squarecontainer > div").tsort("",{attr:"id"});
+        }
+    </script>
     <script type="text/javascript">
       var grid = [];
-      function makeColor(i, numSq){
+      function makeColor(i, j, numSq){
         var letters = '0123456789ABCDEF'.split('');
         var color = '#';
         for (var i = 0; i < 6; i++ ) {
@@ -41,13 +48,14 @@ function init(){
       colorBox.style.height="10%";
       colorBox.style.float="left";
       var context = colorBox.getContext("2d");
-      context.fillStyle = makeColor(i, horizSq*vertSq);
+      context.fillStyle = makeColor(i, j, horizSq*vertSq);
       context.fillRect(0,0,colorBox.width, colorBox.height);
       colorBox.id = context.fillStyle;
       div.appendChild(colorBox);
     }
   }
   document.body.appendChild(div);
+  sort();
 }
 </script>
   </head>
