@@ -62,14 +62,20 @@ def hexToHue (hex_in):
 # from the basis of danceability, energy, tempo, mode, and loudness
 def hexToDescrip (hex_in):
     rgb = hex_to_rgb (hex_in)
-    hsv = colorsys.rgb_to_hsv (rgb[0], rgb[1], rgb[2])
+    hsv = colorsys.rgb_to_hsv (rgb[0]/255.0, rgb[1]/255.0, rgb[2]/255.0)
 
     hue = hsv[0] * 360
     sat = float(hsv[1]*100)
     bright = float(hsv[2]/255)*100
+    print(hsv[0])
+    print(hsv[1])
+    print(hsv[2])
 
     color_left  = between(hue)[0]
     color_right = between(hue)[1]
+
+    print(color_left)
+    print(color_right)
 
     # Multiplier to average two attributes
     m = (hue % 60) / 60
@@ -77,6 +83,9 @@ def hexToDescrip (hex_in):
     # Weights for saturation and brightness
     s = float(sat/100)
     b = float(bright/100)
+
+    print(s)
+    print(b)
 
     loc = []
     for i in range (0, 7):
