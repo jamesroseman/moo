@@ -1,0 +1,58 @@
+body {
+    background: #BDB;
+}
+
+div#player {
+    background: #FFF;
+    width: 400px;
+    height: 400px;
+    margin-top: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div#info {
+    background: #FFF;
+    padding-top: 2px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+}
+
+ul#controls {
+    width: 400px;
+    height: 100px;
+}
+
+ul#controls li {
+    list-style-type: none;
+    display: inline;
+    display: inline-block;
+    font-size: large;
+    background: #FFF;
+    width: 100px;
+    height: 60px;
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+}
+
+ul#controls li:hover {
+    background: #EEE;
+}
+
+img {
+    width: 400px;
+    height: 400px;
+}
+
+p#song_title {
+    font-size: xx-large;
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+p#artist_name {
+    font-size: large;
+    text-align: center;
+    margin-top: 0px;
+}
