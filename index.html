@@ -3,15 +3,30 @@
 <html>
   <title>Moo</title>
   <head>
-    <style>
+    <style type="text/css">
+    #header {
+        padding: 0 0 0 0;
+        margin: 0 0 0 0;
+    }
       #squarecontainer {
-      min-height: 100%;
-      min-width: 100%;
+      min-height: auto;
+      min-width: auto;
       display: inline-block;
       padding: 0px;
-      margin: 0px;
+      overflow: hidden;
+      overflow-y: hidden;
+      border: 0;
     }
+    body {
+        background-color: black !important;
+        padding: 0 0 0 0;
+        margin: 0 0 0 0 !important;
 
+    }
+html {
+	margin: 0;
+	padding: 0;
+}
     </style>
     <script type="text/javascript" src="jquery.js"></script>
     <script type="text/javascript" src="tinysort.js"></script>
@@ -33,10 +48,10 @@
 
 function init(){
   document.body.innerHTML = "";
-
+  document.write('<div class="header"></div>');
   var div = document.createElement("div");
   div.id = "squarecontainer";
-  var horizSq = 11;
+  var horizSq = 10;
   var vertSq = 10;
   width = window.innerWidth;
   height = window.innerHeight;
@@ -59,7 +74,6 @@ function init(){
 }
 </script>
   </head>
-  <body onload="init()" onresize="init()" 
-    style='min-width:100%; min-height:100%; padding:0px; margin:0px;'>
+  <body onload="init()" onresize="init()">
   </body>
 </html>
